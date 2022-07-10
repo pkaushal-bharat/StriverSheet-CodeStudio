@@ -1,0 +1,16 @@
+#include <bits/stdc++.h> 
+vector<vector<long long int>> printPascal(int n) 
+{
+//creating a vector of size n, each line will contain a row of data for pascal's triangle
+   vector<vector<long long int>>v(n); 
+  
+   for(int i = 0; i < n; i++) //operating on each line
+   {
+       v[i].resize(i+1); //vector size increases by 1 for next row.
+       v[i][0] =1; //first element for any row is always 1
+       v[i][i] =1; //last element is also 1
+       for(int j =1; j < i ; j++) //thge middke ones are sum from above row
+           v[i][j] = v[i-1][j-1]+v[i-1][j];
+   }
+   return v; // return the vector thus created
+}
